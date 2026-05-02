@@ -1,0 +1,64 @@
+/* --- Menu Page Specific --- */
+.luxury-nav-solid {
+    position: static;
+    background-color: var(--bg-dark);
+}
+
+.page-header {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background-color: var(--bg-surface);
+}
+
+.menu-category {
+    margin-bottom: 4rem;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+    transition: var(--transition);
+}
+
+.menu-item:hover {
+    padding-left: 10px;
+}
+
+.m-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.m-title-row h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+.m-price {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.m-desc {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.active-nav {
+    color: var(--gold) !important;
+    border-bottom: 1px solid var(--gold);
+}

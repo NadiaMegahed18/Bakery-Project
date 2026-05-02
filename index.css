@@ -1,0 +1,437 @@
+/* =========================================
+   LUXURY ARTISAN BAKERY DESIGN (DARK MODE)
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-dark: #0f0e0c;        /* Pitch black with a warm tint */
+    --bg-surface: #1a1816;     /* Slightly lighter dark */
+    --bg-light: #24211d;
+    
+    --gold: #d4af37;           /* Classic luxury gold */
+    --gold-hover: #b5952f;
+    
+    --text-main: #fdfbf7;      /* Clean off-white */
+    --text-gray: #a8a096;      /* Warm muted text */
+    
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    
+    --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body.dark-theme {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-narrow { max-width: 900px; }
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 4rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 4rem; }
+.py-section { padding: 8rem 0; }
+.text-gray { color: var(--text-gray); }
+
+/* --- Typography --- */
+.serif-heading {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-main);
+}
+.subtitle-gold {
+    font-family: var(--font-sans);
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* --- Buttons --- */
+.btn-gold-outline {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    background: transparent;
+}
+.btn-gold-outline:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+.btn-gold-fill {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--bg-dark);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+.btn-gold-fill:hover {
+    background: transparent;
+    color: var(--gold);
+}
+
+/* --- Nav --- */
+.luxury-nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+.nav-links a {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 5px;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.active-nav {
+    color: var(--gold) !important;
+}
+.active-nav::after {
+    transform: scaleX(1) !important;
+}
+.nav-icon i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+/* --- Hero Dramatic --- */
+.hero-dramatic {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+.hero-bg-image {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('./image/images (1).jfif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    z-index: -2;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(15, 14, 12, 0.7) 0%, rgba(15, 14, 12, 0.95) 100%);
+    z-index: -1;
+}
+.hero-content-dramatic {
+    z-index: 10;
+    max-width: 800px;
+}
+.hero-content-dramatic .title-serif {
+    font-size: 6rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+.hero-content-dramatic em {
+    font-style: italic;
+    color: var(--gold);
+}
+.hero-content-dramatic p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+}
+
+/* --- Bakery Features Section --- */
+.features-dark {
+    background-color: var(--bg-dark);
+}
+.bakery-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+}
+.b-feature {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 2rem;
+    text-align: center;
+    transition: var(--transition);
+}
+.b-feature:hover {
+    border-top-color: var(--gold);
+    transform: translateY(-10px);
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+.b-feature h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.b-feature p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+/* --- Asymmetrical Atelier Layer --- */
+.atelier-section {
+    background-color: var(--bg-surface);
+}
+.asym-grid {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+}
+.asym-image {
+    flex: 1;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+.asym-image::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--gold);
+    z-index: -1;
+}
+.asym-content {
+    flex: 1;
+}
+
+/* --- Creations Gallery --- */
+.gallery-section {
+    background-color: var(--bg-dark);
+}
+.creations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.creation-card {
+    background: var(--bg-surface);
+    transition: var(--transition);
+}
+.creation-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.c-image-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+.c-image-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.creation-card:hover .c-image-wrap img {
+    transform: scale(1.1);
+}
+.c-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 14, 12, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+.creation-card:hover .c-overlay {
+    opacity: 1;
+}
+.c-view {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid white;
+    padding: 0.5rem 1.5rem;
+}
+.c-details {
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.03);
+    border-top: none;
+}
+.c-details h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--gold);
+}
+.c-details p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+/* --- Luxury Footer --- */
+.luxury-footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-split {
+    display: flex;
+    gap: 5rem;
+}
+.footer-info {
+    flex: 1;
+}
+.contact-list-elegant {
+    list-style: none;
+}
+.contact-list-elegant li {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+.contact-list-elegant i {
+    color: var(--gold);
+    font-size: 1.2rem;
+    width: 30px;
+}
+.social-elegant a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px; height: 45px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    margin-right: 1rem;
+    color: var(--text-main);
+    transition: var(--transition);
+}
+.social-elegant a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg-dark);
+}
+.footer-map {
+    flex: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.footer-map iframe {
+    width: 100%; height: 350px;
+    display: block;
+    filter: grayscale(100%) invert(92%) contrast(1.2) hue-rotate(180deg);
+    transition: filter 0.5s ease;
+    border: none;
+}
+.footer-map iframe:hover {
+    filter: grayscale(0%) invert(0%) contrast(1);
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 3rem;
+}
+.footer-logo {
+    height: 40px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1) hue-rotate(180deg) brightness(0.7);
+}
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    letter-spacing: 1px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .hero-content-dramatic .title-serif { font-size: 4.5rem; }
+    .bakery-features-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .asym-grid { flex-direction: column; text-align: center; }
+    .asym-image { width: 100%; height: 400px; }
+    .asym-image::after { display: none; }
+    .creations-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-split { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+    .hero-content-dramatic .title-serif { font-size: 3rem; }
+    .hero-content-dramatic p { padding: 0; }
+    .bakery-features-grid { grid-template-columns: 1fr; }
+    .creations-grid { grid-template-columns: 1fr; }
+}

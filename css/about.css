@@ -1,0 +1,64 @@
+/* --- About Page Specific --- */
+.luxury-nav-solid {
+    position: static;
+    background-color: var(--bg-dark);
+}
+
+.zigzag-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 8rem;
+}
+
+.zigzag-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.z-image {
+    flex: 1;
+    position: relative;
+}
+
+.z-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: -20px 20px 0 rgba(255,255,255,0.02);
+    transition: transform 0.5s ease;
+}
+.reverse .z-image img {
+    box-shadow: 20px 20px 0 rgba(255,255,255,0.02);
+}
+
+.z-image:hover img {
+    transform: scale(1.02);
+}
+
+.z-content {
+    flex: 1;
+}
+
+.z-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.active-nav {
+    color: var(--gold) !important;
+    border-bottom: 1px solid var(--gold);
+}
+
+@media (max-width: 900px) {
+    .zigzag-row, .zigzag-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .z-image img {
+        height: 300px;
+        box-shadow: none !important;
+    }
+}

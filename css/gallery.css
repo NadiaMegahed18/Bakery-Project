@@ -1,0 +1,140 @@
+/* --- Luxury Gallery Design --- */
+
+.luxury-nav-solid {
+    position: static;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-masonry {
+    background-color: var(--bg-surface);
+    min-height: 100vh;
+}
+
+/* Modern CSS Columns Masonry */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 2rem;
+    padding: 2rem 0;
+}
+
+.m-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    background-color: var(--bg-dark);
+}
+
+.m-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid rgba(212, 175, 55, 0);
+    border-radius: 8px;
+    transition: all 0.5s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.m-item:hover::before {
+    border-color: rgba(212, 175, 55, 0.6);
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+}
+
+.m-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    filter: sepia(0.3) brightness(0.8) contrast(1.1);
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.8s ease;
+}
+
+.m-item:hover img {
+    transform: scale(1.1);
+    filter: sepia(0) brightness(1) contrast(1.2);
+}
+
+.m-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(15, 14, 12, 0.9) 0%, rgba(15, 14, 12, 0) 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.m-item:hover .m-overlay {
+    opacity: 1;
+}
+
+.m-overlay h3 {
+    font-family: var(--font-serif);
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.m-item:hover .m-overlay h3 {
+    transform: translateY(0);
+}
+
+.m-overlay p {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+    opacity: 0;
+}
+
+.m-item:hover .m-overlay p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Entry Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.m-item {
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.m-item:nth-child(1) { animation-delay: 0.1s; }
+.m-item:nth-child(2) { animation-delay: 0.2s; }
+.m-item:nth-child(3) { animation-delay: 0.3s; }
+.m-item:nth-child(4) { animation-delay: 0.4s; }
+.m-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
